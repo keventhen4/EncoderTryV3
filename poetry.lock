@@ -263,6 +263,14 @@ qa = ["flake8 (==3.8.3)", "mypy (==0.782)"]
 testing = ["docopt", "pytest (<6.0.0)"]
 
 [[package]]
+name = "pasteboard"
+version = "0.3.3"
+description = "Pasteboard - Python interface for reading from NSPasteboard (macOS clipboard)"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[[package]]
 name = "pluggy"
 version = "1.0.0"
 description = "plugin and hook calling mechanisms for python"
@@ -310,6 +318,21 @@ python-versions = ">=3.6.8"
 diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
+name = "pyperclip3"
+version = "0.4.1"
+description = "Cross-platform clipboard utilities supporting both binary and text data."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pasteboard = {version = "0.3.3", markers = "platform_system == \"Darwin\""}
+pywin32 = {version = ">=1.0", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+test = ["pytest"]
+
+[[package]]
 name = "python-lsp-jsonrpc"
 version = "1.0.0"
 description = "JSON RPC 2.0 server library"
@@ -340,6 +363,14 @@ validation = ["pydantic (>=1.7.4)"]
 global = ["appdirs (>=1.4.4)"]
 gen_docs = ["pytoolconfig", "sphinx-rtd-theme (>=1.0.0)", "sphinx-autodoc-typehints (>=1.18.1)", "sphinx (>=4.5.0)"]
 doc = ["sphinx (>=4.5.0)", "tabulate (>=0.8.9)"]
+
+[[package]]
+name = "pywin32"
+version = "306"
+description = "Python for Window Extensions"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "replit"
@@ -546,7 +577,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "3161dca3ede9c056cd0a25de9931c576834357eb10afa08e94c5c8dc6150ad22"
+content-hash = "77f7df656bc55823589cd070a51c6977463fed1103690b21e5777c9b028e8e28"
 
 [metadata.files]
 aiohttp = []
@@ -572,13 +603,16 @@ multidict = []
 numpy = []
 packaging = []
 parso = []
+pasteboard = []
 pluggy = []
 pyasn1 = []
 pycparser = []
 pyflakes = []
 pyparsing = []
+pyperclip3 = []
 python-lsp-jsonrpc = []
 pytoolconfig = []
+pywin32 = []
 replit = []
 replit-python-lsp-server = []
 requests = []
